@@ -1,0 +1,51 @@
+# Python
+#
+# Python bytecode files
+__pycache__/
+*.pyc
+# Compiled extensions (may be .so, .exe, .dll, etc. in rare cases)
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+*.whl
+*.tar.gz
+*.zip
+
+# Virtual environment
+# .venv/ is a common name, can be changed to "venv/"
+.venv/
+# Windows specific
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+test/__pycache__/
+coverage/
+.coverage
+
+# Editors and IDEs
+.idea/  # For PyCharm
+.vscode/ # For VS Code (can be merged with a separate VSCode.gitignore)
+*.swp # vim
+
+# Miscellaneous
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env
+.flaskenv
+
+# Jupyter Notebook files
+.ipynb_checkpoints
