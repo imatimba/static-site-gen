@@ -5,6 +5,7 @@ from inline_markdown import (
     extract_markdown_links,
     split_nodes_image,
     split_nodes_link,
+    text_to_textnodes,
 )
 from textnode import TextNode, TextType
 
@@ -164,6 +165,24 @@ class TestInlineMarkdown(unittest.TestCase):
             [TextNode("only link", TextType.LINK, "https://onlylink.com")],
             new_nodes,
         )
+
+    def test_text_to_textnodes(self):
+        text = "This is **bold** text that includes _italic text_ with a [link](https://example.com) and an ![image](https://i.imgur.com/zjjcJKZ.png) and `code`."
+        nodes = text_to_textnodes(text)
+        expected = [
+            TextNode("This is ", TextType.TEXT),
+            TextNode("bold", TextType.BOLD),
+            TextNode(" text that includes ", TextType.TEXT),
+            TextNode("italic text", TextType.ITALIC),
+            TextNode(" with a ", TextType.TEXT),
+            TextNode("link", TextType.LINK, "https://example.com"),
+            TextNode(" and an ", TextType.TEXT),
+            TextNode("image", TextType.IMAGE, "https://i.imgur.com/zjjcJKZ.png"),
+            TextNode(" and ", TextType.TEXT),
+            TextNode("code", TextType.CODE),
+            TextNode(".", TextType.TEXT),
+        ]
+        self.assertListEqual(nodes, expected)
 
 
 if __name__ == "__main__":
