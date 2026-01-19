@@ -20,9 +20,9 @@ def block_to_block_type(block):
         return BlockType.HEADING
     if block.startswith("```") and block.endswith("```"):
         return BlockType.CODE
-    if block.startswith("> "):
+    if block.startswith(">"):
         for line in lines:
-            if not line.startswith("> "):
+            if not line.startswith(">"):
                 return BlockType.PARAGRAPH
         return BlockType.QUOTE
     if block.startswith(("- ")):

@@ -79,7 +79,7 @@ This is the same paragraph on a new line
         self.assertEqual(block_to_block_type(block), BlockType.CODE)
 
     def test_block_to_block_type_quote(self):
-        block = "> This is a blockquote.\n> It has multiple lines."
+        block = "> This is a blockquote.\n> It has multiple lines.\n>"
         self.assertEqual(block_to_block_type(block), BlockType.QUOTE)
 
     def test_block_to_block_type_unordered_list(self):
