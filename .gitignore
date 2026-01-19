@@ -49,3 +49,5 @@ coverage/
 
 # Jupyter Notebook files
 .ipynb_checkpoints
+
+public/
