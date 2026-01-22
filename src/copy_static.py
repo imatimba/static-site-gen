@@ -4,8 +4,8 @@ import shutil
 
 def copy_static_files(static_dir, output_dir):
     try:
-        shutil.rmtree(output_dir)
-        os.mkdir(output_dir)
+        shutil.rmtree(output_dir, ignore_errors=True)
+        os.makedirs(output_dir)
     except Exception as e:
         raise ValueError(e)
 
@@ -17,7 +17,7 @@ def copy_static_files(static_dir, output_dir):
             if os.path.isfile(src_path):
                 shutil.copy2(src_path, dest_path)
             else:
-                os.mkdir(dest_path)
+                os.makedirs(dest_path)
                 copy_static_files(src_path, dest_path)
     else:
         raise ValueError(f"Static directory does not exist: {static_dir}")
